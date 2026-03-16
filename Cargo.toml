@@ -7,7 +7,7 @@ description = "Simple pomodoro timer for status bar"
 license = "MIT"
 repository = "https://github.com/deepgreenAN/pomodoro-sni"
 readme = "README.md"
-categories = ["Command line utilities"]
+categories = ["command-line-utilities"]
 keywords = ["pomodoro"]
 default-run = "pomodoro-sni"
 
