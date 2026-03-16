@@ -2,3 +2,4 @@
 /temp
 /src/bin/check_*.rs
 /.vscode
+/release
