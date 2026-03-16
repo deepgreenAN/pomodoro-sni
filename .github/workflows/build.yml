@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install libasound2-dev
-          run: cargo binstall cross -y
+          cargo binstall cross -y
       - name: linux build and mv
         shell: nu {0}
         run: |
