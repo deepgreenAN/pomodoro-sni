@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    tags: 
+      - "v*"
+
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: hustcer/setup-nu@v3
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: cargo-bins/cargo-binstall@main  
+      - name: install lib and tool
+        shell: nu {0}
+        run: |
+          sudo apt update
+          sudo apt install libasound2-dev
+          run: cargo binstall cross -y
+      - name: linux build and mv
+        shell: nu {0}
+        run: |
+          mkdir dist
+          cross build --release --target x86_64-unknown-linux-gnu
+          mv target/x86_64-unknown-linux-gnu/release/pomodoro-sni dist/pomodoro-sni
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: dist/*
