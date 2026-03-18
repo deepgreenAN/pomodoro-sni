@@ -11,6 +11,9 @@ enum TerminalType {
     Kitty,
     MateTerminal,
     Ptyxis,
+    LxTerminal,
+    QTerminal,
+    Kgx,
 }
 
 impl TerminalType {
@@ -25,6 +28,9 @@ impl TerminalType {
             Kitty => "kitty",
             MateTerminal => "mate-terminal",
             Ptyxis => "ptyxis",
+            LxTerminal => "lxterminal",
+            QTerminal => "qterminal",
+            Kgx => "kgx",
         };
 
         terminal.to_owned()
@@ -35,11 +41,14 @@ impl TerminalType {
         match self {
             GnomeTerminal => vec!["--".to_owned()],
             Konsole => vec!["-e".to_owned()],
-            Xfce4Terminal => vec!["-e".to_owned()],
+            Xfce4Terminal => vec!["-x".to_owned()],
             Alacritty => vec!["-e".to_owned()],
             Kitty => vec![],
-            MateTerminal => vec!["-e".to_owned()],
+            MateTerminal => vec!["-x".to_owned()],
             Ptyxis => vec!["--new-window".to_owned(), "--".to_owned()],
+            LxTerminal => vec!["-e".to_owned()],
+            QTerminal => vec!["-e".to_owned()],
+            Kgx => vec!["-e".to_owned()],
         }
     }
 
@@ -54,6 +63,9 @@ impl TerminalType {
             Kitty,
             MateTerminal,
             Ptyxis,
+            LxTerminal,
+            QTerminal,
+            Kgx,
         ];
 
         terminals.into_iter().find(|term|{

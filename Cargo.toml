@@ -1,6 +1,6 @@
 [package]
 name = "pomodoro-sni"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Asami <asami73dgreen63@gmail.com>"]
 description = "Simple pomodoro timer for status bar"
